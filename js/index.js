@@ -1,9 +1,14 @@
-const paragraph = document.createElement('p');
-const text = prompt('Введите текст для параграфа');
+import {textDelay} from './modules/control.js';
+import * as createElems from './modules/create.js'
+const {
+  createInput,
+  cssMainInput,
+  createParagraph} = createElems;
 
-document.body.append(paragraph);
+const input = createInput;
+const paragraph = createParagraph;
 
-const textDelay = setTimeout(()=>{
-  paragraph.textContent = '';
-  paragraph.textContent = text;
-}, 300);
+textDelay(input, paragraph)
+
+document.head.prepend(cssMainInput);
+document.body.append(input, paragraph);
