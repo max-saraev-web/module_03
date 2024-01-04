@@ -9,11 +9,11 @@ const strToLink = str => {
 
   const regExp = /(https?:\/\/)(\w+)\.(\w{2,5})/gi;
 
-  textElem.innerHTML = str.replace(regExp, match => {
+  textElem.innerHTML = str.replace(regExp, (match, p1, p2, p3) => {
     const link = document.createElement('a');
     link.target = '_blank';
     link.href = match;
-    link.textContent = match;
+    link.textContent = `${p2}.${p3}`;
     return link.outerHTML;
   });
 };
